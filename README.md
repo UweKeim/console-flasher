@@ -2,7 +2,7 @@
 
 A small command line tool to flash the console window via the [`FlashConsoleEx` Windows API call](https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-flashwindowex).
 
-I'm using this tool heavily inside my build scripts (which are CMD batch files) to signal myself if a build script fails.
+I'm using this tool heavily inside my own build scripts (which are CMD batch files) to signal myself if a build script fails.
 
 By flashing the CMD window I can do other things during long running build scripts and do not have to constantly monitor the running build processes.
 
