@@ -16,6 +16,15 @@
 # Mono auto generated files
 mono_crash.*
 
+# Uwe Keim
+[Dd]eploy/
+_[Rr]eferences/
+.svn/
+build-all.cmd
+do-build-all.cs
+do-build-all.log
+NuGet.exe
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
