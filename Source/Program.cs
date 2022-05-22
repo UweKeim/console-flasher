@@ -65,6 +65,7 @@
 
             // --
             // https://github.com/microsoft/terminal/issues/8713#issuecomment-756181568
+            // https://github.com/microsoft/terminal/pull/8215#issuecomment-1133926842
 
             Console.Write("\u001b[G");
             Console.Write("\a");
