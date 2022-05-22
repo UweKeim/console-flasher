@@ -1,11 +1,5 @@
 ﻿namespace ConsoleFlasher
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Diagnostics;
-    using System.Runtime.InteropServices;
-
     internal static class Program
     {
         [DllImport(@"user32.dll")]
@@ -69,6 +63,14 @@
                 FlashWindowEx(ref fInfo);
             }
 
+            // --
+            // https://github.com/microsoft/terminal/issues/8713#issuecomment-756181568
+
+            Console.Write("\u001b[G");
+            Console.Write("\a");
+
+            // --
+
             return 0;
         }
 
@@ -98,8 +100,7 @@
                     // Console.WriteLine($@"Process '{parent.ProcessName}'.");
 
                     parent = ParentProcessUtilities.GetParentProcess(parent.Handle);
-                } while (parent != null && !parent.HasExited &&
-                         !string.Equals(parent.ProcessName, @"Explorer", StringComparison.OrdinalIgnoreCase));
+                } while (parent is { HasExited: false } && !string.Equals(parent.ProcessName, @"Explorer", StringComparison.OrdinalIgnoreCase));
             }
             catch (Win32Exception)
             {
